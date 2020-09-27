@@ -12,7 +12,7 @@ module.exports = {
   coverageReporters: ['lcov', 'cobertura'],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: ['js', 'json', 'jsx'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
 
   // Use this configuration option to add custom reporters to Jest
   reporters: ['default', ['jest-junit', { outputDirectory: '<rootDir>/src/tests/out/' }]],
@@ -23,5 +23,6 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     '\\.jsx?$': 'babel-jest',
+    '\\.tsx?$': 'ts-jest',
   },
 };

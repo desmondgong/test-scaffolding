@@ -1,4 +1,4 @@
-import * as ACTION_TYPES from '../../../constants/ActionTypes';
+import * as ACTION_TYPES from '../../../constants';
 import Reducer, { INITIAL_STATE } from '../../../reducers';
 import TEST_FAV_RESTAURANTS_DATA from '../../test-data/favRestaurants';
 

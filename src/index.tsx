@@ -7,10 +7,11 @@ import getTheme from './theme';
 import App from './App';
 
 const store = storeFactory();
+const theme = getTheme();
 
 ReactDOM.render(
   <Provider store={store}>
-    <MuiThemeProvider theme={getTheme()}>
+    <MuiThemeProvider theme={theme}>
       <App />
     </MuiThemeProvider>
   </Provider>,

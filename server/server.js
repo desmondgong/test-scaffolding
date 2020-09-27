@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import path from 'path';
 import express from 'express';
 import React from 'react';
@@ -11,20 +13,20 @@ app.set('port', process.env.PORT_WEBSERVER || 3000);
 
 // Bundle in memory, only used for development
 if (process.env.NODE_ENV === 'development') {
-  const webpack = require('webpack'); // eslint-disable-line global-require
-  const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
-  const webpackConfig = require('../webpack.config'); // eslint-disable-line global-require
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackConfig = require('../webpack.config');
   const compiler = webpack(webpackConfig);
   app.use(
     webpackDevMiddleware(compiler, {
       publicPath: '/lib/', // Same as `output.publicPath` in most cases.
     }),
   );
-  // Enable mock server for local developing.
-  enableMock(app);
 } else {
   app.use('/lib', express.static(path.join(__dirname, '../')));
 }
+// Enable mock server for local developing.
+enableMock(app);
 
 app.get('/home', (req, res) => {
   /* eslint react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }] */

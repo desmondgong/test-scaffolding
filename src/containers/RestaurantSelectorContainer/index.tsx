@@ -11,7 +11,7 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-const RestaurantSelectorContainer = (props) => {
+const RestaurantSelectorContainer = (props): JSX.Element => {
   const { favRestaurants } = props;
   const classes = useStyles(props);
   useEffect(() => {

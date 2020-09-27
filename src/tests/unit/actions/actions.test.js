@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { INITIAL_STATE } from '../../../reducers';
 import * as actions from '../../../actions';
-import * as ACTION_TYPES from '../../../constants/ActionTypes';
+import * as ACTION_TYPES from '../../../constants';
 import TEST_FAV_RESTAURANTS_DATA from '../../test-data/favRestaurants';
 
 describe('actions', () => {

@@ -1,17 +1,18 @@
 import 'isomorphic-fetch';
-import * as ACTION_TYPES from '../constants/ActionTypes';
+import { Dispatch } from 'redux';
+import { AppAction, ActionType } from '../constants';
 
-export const loadFavRestaurants = (restaurants) => ({
-  type: ACTION_TYPES.FAV_RESTAURANTS_LOAD_DATA,
+export const loadFavRestaurants = (restaurants: []): AppAction => ({
+  type: ActionType.FAV_RESTAURANTS_LOAD_DATA,
   data: restaurants,
 });
 
-export const setNotification = (message) => ({
-  type: ACTION_TYPES.NOTIFICATION_SET_MESSAGE,
+export const setNotification = (message: string): AppAction => ({
+  type: ActionType.NOTIFICATION_SET_MESSAGE,
   data: message,
 });
 
-export const fetchFavRestaurants = () => (dispatch) =>
+export const fetchFavRestaurants = () => (dispatch: Dispatch): AppAction =>
   // eslint-disable-next-line implicit-arrow-linebreak
   fetch('/api/mock/favRestaurants')
     .then((res) => {

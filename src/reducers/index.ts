@@ -1,12 +1,16 @@
-import * as ACTION_TYPES from '../constants/ActionTypes';
+import { AppAction, ActionType } from '../constants';
 
-export const INITIAL_STATE = {
+interface State {
+  favRestaurants: [];
+  notification: string;
+}
+export const INITIAL_STATE: State = {
   favRestaurants: [],
   notification: '',
 };
-export default (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action: AppAction): State => {
   switch (action.type) {
-    case ACTION_TYPES.FAV_RESTAURANTS_LOAD_DATA:
+    case ActionType.FAV_RESTAURANTS_LOAD_DATA:
       return {
         ...state,
         favRestaurants: action.data.map(({ restaurant }) => ({
@@ -17,7 +21,7 @@ export default (state = INITIAL_STATE, action) => {
           url: restaurant.url,
         })),
       };
-    case ACTION_TYPES.NOTIFICATION_SET_MESSAGE:
+    case ActionType.NOTIFICATION_SET_MESSAGE:
       return {
         ...state,
         notification: action.data,
