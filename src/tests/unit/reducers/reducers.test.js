@@ -1,4 +1,4 @@
-import * as ACTION_TYPES from '../../../constants';
+import { ActionType } from '../../../constants';
 import Reducer, { INITIAL_STATE } from '../../../reducers';
 import TEST_FAV_RESTAURANTS_DATA from '../../test-data/favRestaurants';
 
@@ -7,7 +7,7 @@ describe('reducers', () => {
 
   it('handles action FAV_RESTAURANTS_LOAD_DATA', () => {
     const action = {
-      type: ACTION_TYPES.FAV_RESTAURANTS_LOAD_DATA,
+      type: ActionType.FAV_RESTAURANTS_LOAD_DATA,
       data: TEST_FAV_RESTAURANTS_DATA,
     };
     const state = Reducer(initialState, action);
@@ -17,7 +17,7 @@ describe('reducers', () => {
   it('handles action NOTIFICATION_SET_MESSAGE', () => {
     const msg = 'warning';
     const action = {
-      type: ACTION_TYPES.NOTIFICATION_SET_MESSAGE,
+      type: ActionType.NOTIFICATION_SET_MESSAGE,
       data: msg,
     };
     const state = Reducer(initialState, action);

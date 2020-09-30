@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { fetchFavRestaurants } from '../../actions';
 import RestaurantSelector from '../../components/RestaurantSelector';
 import RestaurantCard from '../../components/RestaurantCard';
-
+import { Restaurant } from '../../types';
 import styles from './styles';
+
+interface Props {
+  favRestaurants: Array<Restaurant>;
+  fetchFavRestaurants: () => void;
+}
 
 const useStyles = makeStyles(styles);
 
-const RestaurantSelectorContainer = (props): JSX.Element => {
+const RestaurantSelectorContainer = (props: Props): ReactElement => {
   const { favRestaurants } = props;
   const classes = useStyles(props);
   useEffect(() => {
@@ -28,16 +32,6 @@ const RestaurantSelectorContainer = (props): JSX.Element => {
       <RestaurantSelector favRestaurants={favRestaurants} />
     </div>
   );
-};
-RestaurantSelectorContainer.propTypes = {
-  favRestaurants: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      thumb: PropTypes.string,
-    }),
-  ).isRequired,
-  fetchFavRestaurants: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

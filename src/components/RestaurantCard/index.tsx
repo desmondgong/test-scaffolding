@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { Restaurant } from '../../types';
 import styles from './styles';
 
-export interface Props {
-  name: string;
-  thumb?: string;
-  address?: string;
-  url?: string;
-}
+export interface Props extends Restaurant {}
 
 const useStyles = makeStyles(styles);
 
-const RestaurantCard = (props: Props): JSX.Element => {
+const RestaurantCard = (props: Props): ReactElement => {
   const { name, thumb = '', address = '', url = '' } = props;
   const classes = useStyles(props);
   return (

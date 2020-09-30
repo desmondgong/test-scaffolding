@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
-import RestaurantCard, { Props as RestaurantCardProps } from '../RestaurantCard';
+import RestaurantCard from '../RestaurantCard';
+import { Restaurant } from '../../types';
 
 interface Props {
-  favRestaurants: RestaurantCardProps[];
+  favRestaurants: Array<Restaurant>;
 }
 
-const RestaurantSelector = (props: Props): JSX.Element => {
+const RestaurantSelector = (props: Props): ReactElement => {
   const { favRestaurants } = props;
   const [selectedRestrIndex, selectRestr] = useState(null);
   return (

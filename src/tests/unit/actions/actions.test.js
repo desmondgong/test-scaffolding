@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { INITIAL_STATE } from '../../../reducers';
 import * as actions from '../../../actions';
-import * as ACTION_TYPES from '../../../constants';
+import { ActionType } from '../../../constants';
 import TEST_FAV_RESTAURANTS_DATA from '../../test-data/favRestaurants';
 
 describe('actions', () => {
@@ -23,7 +23,7 @@ describe('actions', () => {
     return store.dispatch(actions.fetchFavRestaurants()).then(() => {
       const expectedActions = [
         {
-          type: ACTION_TYPES.FAV_RESTAURANTS_LOAD_DATA,
+          type: ActionType.FAV_RESTAURANTS_LOAD_DATA,
           data: TEST_FAV_RESTAURANTS_DATA,
         },
       ];
@@ -40,7 +40,7 @@ describe('actions', () => {
     return store.dispatch(actions.fetchFavRestaurants()).then(() => {
       const expectedActions = [
         {
-          type: ACTION_TYPES.NOTIFICATION_SET_MESSAGE,
+          type: ActionType.NOTIFICATION_SET_MESSAGE,
           data: 'Failed to load fav restaurants',
         },
       ];

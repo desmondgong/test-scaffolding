@@ -1,8 +1,9 @@
 import 'isomorphic-fetch';
 import { Dispatch } from 'redux';
 import { AppAction, ActionType } from '../constants';
+import { Restaurant } from '../types';
 
-export const loadFavRestaurants = (restaurants: []): AppAction => ({
+export const loadFavRestaurants = (restaurants: Array<Restaurant>): AppAction => ({
   type: ActionType.FAV_RESTAURANTS_LOAD_DATA,
   data: restaurants,
 });

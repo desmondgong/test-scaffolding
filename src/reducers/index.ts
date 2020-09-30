@@ -1,7 +1,8 @@
 import { AppAction, ActionType } from '../constants';
+import { Restaurant } from '../types';
 
 interface State {
-  favRestaurants: [];
+  favRestaurants: Array<Restaurant>;
   notification: string;
 }
 export const INITIAL_STATE: State = {

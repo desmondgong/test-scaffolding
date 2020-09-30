@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Grid from '@material-ui/core/Grid';
 import RestaurantSelectorContainer from './containers/RestaurantSelectorContainer';
 
-const App = (): JSX.Element => (
+const App = (): ReactElement => (
   <Grid container justify="center">
     <Grid item xs={10}>
       <RestaurantSelectorContainer />
